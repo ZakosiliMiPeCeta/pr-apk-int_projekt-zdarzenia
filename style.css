@@ -1,0 +1,95 @@
+#move  {
+    width: 50%;
+    height: 75px;
+    background-color: lightblue;
+    margin-left: 25%;
+    text-align: center;
+}
+
+body    {
+    background-color: powderblue;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body *  {
+    border-radius: 2em;
+    box-sizing: border-box;
+}
+
+header  {
+    text-align: center;
+    font-size: 50px;
+    background-color: antiquewhite;
+}
+
+ul  {
+    width: 100%;
+    margin: 2em 0 2em 0;
+    padding: 0;
+    list-style: none;
+}
+
+li  {
+    float: left;
+    width: 9%;
+    margin-left: 1em;
+}
+
+li a    {
+    height: 75px;
+    display: block;
+    padding: 1em;
+    text-align: center;
+    text-decoration: none;
+    background-color: antiquewhite;
+    color: black;
+}
+
+main>p  {
+    text-align: center;
+    clear: both;
+    width: 100%;
+    background-color: antiquewhite;
+    padding: 2%;
+    margin: 15em auto 1em auto;
+}
+
+main a  {
+    font-size: 28px;
+}
+
+main>div>p  {
+    margin-left: 2em;
+    clear: both;
+}
+
+input   {
+    height: 60px;
+    width: 20%;
+    float: left;
+    text-align: center;
+}
+
+main>div    {
+    background-color: antiquewhite;
+    padding: 1em;
+    margin-bottom: 2em;
+}
+
+.fitPrint   {
+    float: left;
+    margin-left: 1em;
+}
+
+code *  {
+    margin-left: 5em;
+    background-color: #666;
+    color: white;
+    padding: 1em 1em 1em 1em;
+    border-radius: 0;
+}
+
+footer  {
+    clear: both;
+    text-align: center;
+}

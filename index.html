@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="utf-8" />
+        <title>Projekt strony</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <header>Zdarzenia w JS by Stahoo</header>
+        <nav>
+            <ul>
+                <li><a href="#zdarzenie1">Click</a></li>
+                <li><a href="#zdarzenie2">Double Click</a></li>
+                <li><a href="#zdarzenie3">MouseOver, MouseOut</a></li>
+                <li><a href="#zdarzenie4">MouseUp, MouseDown</a></li>
+                <li><a href="#zdarzenie5">MouseMove</a></li>
+                <li><a href="#zdarzenie6">Select</a></li>
+                <li><a href="#zdarzenie7">Focus i blur</a></li>
+                <li><a href="#zdarzenie8">Change</a></li>
+                <li><a href="#howTo">Jak to oskryptować?</a></li>
+            </ul>
+        </nav>
+        <main>
+            <p>W języku HTML połączonym z kodowaniem w JS możemy wywoływać różne funkcje za pomocą Eventów, których kilka przykładowych pokażę poniżej:</p>
+            <div id="onclick">
+                <a name="zdarzenie1">Click</a><br>
+                <input type="button" value="onclick" class="przycisk" onclick="button1()" id="btn1"/>
+                <p>Działa to w taki sposób, że w przycisku został wpisany parametr <i>onclick="(nazwa funkcji)"</i>, który odpala daną funkcję po kliknięciu.</p>
+            </div>
+            <div id="ondblclick">
+                <a name="zdarzenie2">Double Click</a><br>
+                <input type="button" value="ondblclick" class="przycisk" ondblclick="button2()" id="btn2"/>
+                <p>Tutaj sytuacja wygląda analogicznie, tylko zamiast <i>onclick()</i> został użyty <i>dblclick()</i></p>
+            </div>
+            <div id="mouseover">
+                <a name="zdarzenie3">MouseOver oraz MouseOut</a><br>
+                <input type="button" value="mouseover (najedź mnie)" class="przycisk" id="btn3"/>
+                <p>W tym przypadku, zamiast używać parametru dla przycisku, jest użyty <i>EventListener</i>. Jest to druga metoda uruchamiania funkcji w JS. Nadaje się przyciskowi ID, po czym odwołując się do niego dopina się Event listenera, który następnie w odpowiednim warunku uruchomi funkcję. EventListenera można dodać każdemu elementowi, któremu wcześniej nadano ID</p>
+            </div>
+            <div id="mouseup">
+                <a name="zdarzenie4">MouseUp i MouseDown</a><br>
+                <input type="button" value="onmouseup" class="przycisk" onmouseup="button4up()" onmousedown="button4down()" id="btn4"/>
+                <p>Ten przycisk wygląda bardzo podobnie do przycisku z <i>onclick</i>. Różnica jest w tym, że tutaj funkcja uruchomi się zaraz po tym, jak przycisk zostanie odpuszczony albo wciśnięty, a onclick musi zarejestrować <i>mousedown</i> oraz <i>mouseup</i> by wykonać funkcję.</p>
+            </div>
+            <div id="mousemove">
+                <a name="zdarzenie5">MouseMove</a><br>
+                <div id="move"></div>
+                <p>W przypadku <i>mousemove</i>, EventListener nasłuchuje, czy myszka rusza się po danym elemencie.</p>
+            </div>
+            <div id="select">
+                <a name="zdarzenie6">Select</a><br>
+                <div id="fitSelect">
+                    <input type="text" id="toSelect" class="prompt" value="Zaznacz stąd tekst" readonly/>
+                    <div id="printResult1" class="fitPrint"></div>
+                </div>
+                <p>Event <i>select</i> sprawdza, czy zawartość danego pola tekstowego jest zanaczona.</p>
+            </div>
+            <div id="focus_blur">
+                <a name="zdarzenie7">Focus i blur</a><br>
+                <div id="fitFocusBlur">
+                    <input type="text" placeholder="Kliknij w to pole tekstowe" class="prompt" onfocus="focused()" onblur="unfocused()" />
+                    <div id="printResult2" class="fitPrint"></div>
+                </div>
+                <p>Zdarzenie <i>focus</i> sprawdza, czy użytkownik kliknął na dane pole tekstowe, kierując tam kursor używany do wpisywania tekstu.</p>
+                <p><i>blur</i> natomiast jest odwrotnością focusa, gdyż sprawdza on, czy opuszczono pole tekstowe.</p>
+            </div>
+            <div id="change">
+                <a name="zdarzenie8">Change</a><br>
+                <div id="fitChange">
+                    <input type="text" placeholder="Wpisz tu tekst i wciśnij enter" class="prompt" onchange="changed()" />
+                    <div id="printResult3" class="fitPrint"></div>
+                </div>
+                <p><i>change</i> wykrywa wszelkie zmiany w polu tekstowym, które zostały potwierdzone klawiszem Enter, lub po zmianie opuszczono pole tekstowe.</p>
+            </div>
+            <div id="jakZrobic">
+                <a name="howTo">Jak to wszystko oskryptować?</a>
+                <p>Jak wspomniałem wyżej, można zrobić to na 2 sposoby.</p>
+                <p>Pierwszym jest wpisanie w <i>input</i> parametr <i>on(akcja)</i>. Pzykład poniżej:</p>
+                <code>
+                    <pre>
+                    #HTML
+                    &lt;input type=button value="Przykładowy przycisk" onclick=funkcja() /&gt;
+
+                    #JS
+                    function funkcja()  {
+                        //Tutaj wpisz co ma wykonać funkcja
+                    }
+                    </pre>
+                </code>
+                <p>Jest jeszcze druga metoda, dokładniej użycie EventListenera. Poniżej można zobaczyć, jak to działa:</p>
+                <code>
+                    <pre>
+                    #HTML (UWAGA: NALEŻY NADAĆ ID INPUTOWI!)
+                    &lt;input type="button" value="Przykładowy przycisk 2" id="idPrzycisk" /&gt;
+
+                    #JS
+                    let przycisk = document.getElementById("idPrzycisk");
+                    przycisk.addEventListener(click, [nazwa funkcji BEZ ARGUMENTÓW AKTUALNYCH]);
+
+                    function [nazwa funkcji]() {
+                        //Co ma ta funkcja wykonać
+                    }
+                    </pre>
+                </code>
+            </div>
+        </main>
+        <footer><h2>&copy;2022 Stanisław Kępiński</h2></footer>
+        <script src="script.js"></script>
+    </body>
+</html>
